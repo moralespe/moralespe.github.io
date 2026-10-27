@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name · Mathematician & Data Scientist</title>
+<meta name="description" content="PhD candidate in Mathematics moving into data science and analytics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f6f8; --surface:#ffffff; --ink:#16202e; --muted:#5b6675;
+  --grid:#dde2e9; --accent:#2f5bea; --accent-ink:#ffffff;
+  --serif:'Spectral',Georgia,serif; --sans:'IBM Plex Sans',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#0f1620;--surface:#17202c;--ink:#e8ecf2;--muted:#9aa6b6;--grid:#243040;--accent:#7b9bff;--accent-ink:#0f1620}
+}
+:root[data-theme="dark"]{--paper:#0f1620;--surface:#17202c;--ink:#e8ecf2;--muted:#9aa6b6;--grid:#243040;--accent:#7b9bff;--accent-ink:#0f1620}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.65 var(--sans)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+
+/* Navigation */
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--grid)}
+nav{display:flex;align-items:center;gap:.25rem;overflow-x:auto;scrollbar-width:none;padding:.5rem 0}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:none;color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem;padding:.45rem .8rem;border-radius:6px}
+nav a:hover{color:var(--ink)}
+nav a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent);border-radius:0}
+nav .brand{font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin-right:auto;padding-left:0}
+#theme{flex:none;background:none;border:1px solid var(--grid);color:var(--muted);border-radius:6px;padding:.3rem .6rem;font:inherit;font-size:.85rem;cursor:pointer}
+
+/* Splash: coordinate-grid paper */
+.splash{min-height:calc(100vh - 3.4rem);display:grid;align-items:center;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:2.5rem 2.5rem;background-position:center top}
+.splash .wrap{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center;padding-top:3rem;padding-bottom:3rem}
+.portrait{width:clamp(10rem,22vw,15rem);aspect-ratio:1;border-radius:50%;object-fit:cover;background:var(--surface);border:4px solid var(--surface);box-shadow:0 0 0 1px var(--grid)}
+.splash h1{font:500 clamp(2.6rem,7vw,4.6rem)/1.02 var(--serif);letter-spacing:-.02em;margin:0 0 .6rem}
+.tagline{font:italic 400 1.25rem/1.4 var(--serif);color:var(--muted);margin:0 0 1.2rem}
+.splash p.short{max-width:34rem;margin:0 0 1.6rem;background:color-mix(in srgb,var(--paper) 80%,transparent)}
+.links{display:flex;flex-wrap:wrap;gap:.6rem}
+.btn{display:inline-block;padding:.55rem 1rem;border-radius:6px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem;background:var(--paper)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-1px)}
+
+/* Pages */
+.page{display:none;padding:3rem 0 5rem}
+.page.active{display:block}
+.page h2{font:500 2.2rem/1.15 var(--serif);margin:0 0 .4rem;letter-spacing:-.01em}
+.lede{color:var(--muted);max-width:40rem;margin:0 0 2rem}
+.page h3{font:600 1.05rem/1.4 var(--sans);margin:2rem 0 .4rem}
+.prose{max-width:42rem}
+.prose p{margin:0 0 1rem;font-family:var(--serif);font-size:1.12rem;line-height:1.75}
+.item{background:var(--surface);border:1px solid var(--grid);border-radius:8px;padding:1.2rem 1.4rem;margin-bottom:1rem}
+.item h3{margin:0 0 .15rem}
+.meta{color:var(--muted);font-size:.9rem;margin:0 0 .6rem}
+.item p{margin:0 0 .5rem}
+.item ul{margin:.3rem 0 0;padding-left:1.2rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+.tags span{font-size:.8rem;color:var(--muted);border:1px solid var(--grid);border-radius:99px;padding:.1rem .6rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(18rem,1fr));gap:1rem}
+.grid2 .item{margin:0}
+.row{display:grid;grid-template-columns:9rem 1fr;gap:1.5rem;padding:1rem 0;border-top:1px solid var(--grid)}
+.row .when{color:var(--muted);font-size:.9rem}
+.row h3{margin:0}
+.pdf{width:100%;height:80vh;border:1px solid var(--grid);border-radius:8px;background:var(--surface)}
+
+/* Photography */
+.gallery{columns:3 15rem;column-gap:.8rem}
+.gallery figure{margin:0 0 .8rem;break-inside:avoid;cursor:zoom-in;background:var(--surface);border:1px solid var(--grid);border-radius:6px;overflow:hidden}
+.gallery img{display:block;width:100%;height:auto}
+.gallery figcaption{font-size:.85rem;color:var(--muted);padding:.4rem .7rem}
+dialog{border:0;padding:0;background:transparent;max-width:92vw;max-height:92vh}
+dialog::backdrop{background:rgba(8,12,18,.88)}
+dialog img{max-width:92vw;max-height:84vh;display:block;margin:0 auto;border-radius:4px}
+dialog p{color:#dfe5ee;text-align:center;margin:.6rem 0 0}
+
+footer{border-top:1px solid var(--grid);color:var(--muted);font-size:.85rem;padding:1.5rem 0}
+
+@media (max-width:640px){
+  .splash .wrap{grid-template-columns:1fr;text-align:left;gap:1.5rem}
+  .row{grid-template-columns:1fr;gap:.2rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="brand" href="#home">Your Name</a>
+      <a href="#research">Research</a>
+      <a href="#about">About me</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#cv">CV</a>
+      <a href="#photography">Photography</a>
+      <button id="theme" type="button" aria-label="Switch light or dark theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ SPLASH ============ -->
+<section id="home" class="page splash-page" style="padding:0">
+  <div class="splash">
+    <div class="wrap">
+      <!-- EDIT: put your photo at assets/profile.jpg -->
+      <img class="portrait" src="assets/profile.jpg" alt="Portrait of Your Name">
+      <div>
+        <h1>Your Name</h1>
+        <p class="tagline">PhD candidate in Mathematics, moving into data science.</p>
+        <p class="short">I study [your research area] and use that training to turn messy data into clear, defensible answers. I’m looking for data science and analytics roles starting [month, year].</p>
+        <div class="links">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn" href="#resume">Resume</a>
+          <a class="btn" href="mailto:you@university.edu">Email</a>
+          <a class="btn" href="https://github.com/your-username">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/your-username">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESEARCH ============ -->
+<section id="research" class="page"><div class="wrap">
+  <h2>Research</h2>
+  <p class="lede">A short summary of what you work on and why it matters, in plain language.</p>
+
+  <div class="item">
+    <h3>Dissertation: [Title of your thesis]</h3>
+    <p class="meta">[University] · Advisor: [Name] · Expected [Year]</p>
+    <p>Two or three sentences on the problem, your approach, and the main result. Mention any methods that carry over to data work, such as optimization, probability, or numerical linear algebra.</p>
+    <div class="tags"><span>Probability</span><span>Optimization</span><span>Statistics</span></div>
+  </div>
+
+  <h3>Publications and preprints</h3>
+  <div class="item">
+    <h3>[Paper title]</h3>
+    <p class="meta">[Co-authors], [Journal or arXiv ID], [Year]</p>
+    <p>One-line summary of the contribution. <a href="#">Paper</a> · <a href="#">Code</a></p>
+  </div>
+  <div class="item">
+    <h3>[Paper title]</h3>
+    <p class="meta">[Co-authors], [Journal or arXiv ID], [Year]</p>
+    <p>One-line summary of the contribution. <a href="#">Paper</a></p>
+  </div>
+
+  <h3>Talks and posters</h3>
+  <div class="row"><div class="when">[Month Year]</div><div><h3>[Talk title]</h3><p class="meta">[Conference or seminar, city]</p></div></div>
+</div></section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="page"><div class="wrap">
+  <h2>About me</h2>
+  <p class="lede">The longer version.</p>
+  <div class="prose">
+    <p>Start with where you come from and what drew you to mathematics. A paragraph is enough.</p>
+    <p>Next, explain the move toward data science: what you enjoy about working with real data, which tools you use (Python, R, SQL, and so on), and what kinds of problems you want to work on.</p>
+    <p>Close with what you do outside work. Photography has its own tab, and a line about it here ties the two together.</p>
+  </div>
+
+  <h3>Skills</h3>
+  <div class="tags" style="margin-bottom:1.5rem">
+    <span>Python</span><span>R</span><span>SQL</span><span>pandas</span><span>scikit-learn</span><span>PyTorch</span><span>Statistical modeling</span><span>Experiment design</span><span>LaTeX</span><span>Git</span>
+  </div>
+
+  <h3>Education</h3>
+  <div class="row"><div class="when">[Year] – present</div><div><h3>PhD, Mathematics</h3><p class="meta">[University]</p></div></div>
+  <div class="row"><div class="when">[Year] – [Year]</div><div><h3>BS, Mathematics</h3><p class="meta">[University]</p></div></div>
+</div></section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="page"><div class="wrap">
+  <h2>Projects</h2>
+  <p class="lede">Each project states the question, the method, and the result.</p>
+  <div class="grid2">
+    <article class="item">
+      <h3>[Project name]</h3>
+      <p class="meta">[Dataset or domain] · [Year]</p>
+      <p>Question you asked, method you used, and the result with a number if you have one.</p>
+      <div class="tags"><span>Python</span><span>Forecasting</span></div>
+      <p style="margin-top:.8rem"><a href="https://github.com/your-username/repo">Code</a> · <a href="#">Write-up</a></p>
+    </article>
+    <article class="item">
+      <h3>[Project name]</h3>
+      <p class="meta">[Dataset or domain] · [Year]</p>
+      <p>Question you asked, method you used, and the result with a number if you have one.</p>
+      <div class="tags"><span>R</span><span>Bayesian</span></div>
+      <p style="margin-top:.8rem"><a href="https://github.com/your-username/repo">Code</a></p>
+    </article>
+    <article class="item">
+      <h3>[Project name]</h3>
+      <p class="meta">[Dataset or domain] · [Year]</p>
+      <p>Question you asked, method you used, and the result with a number if you have one.</p>
+      <div class="tags"><span>SQL</span><span>Dashboard</span></div>
+      <p style="margin-top:.8rem"><a href="#">Live demo</a></p>
+    </article>
+  </div>
+</div></section>
+
+<!-- ============ RESUME ============ -->
+<section id="resume" class="page"><div class="wrap">
+  <h2>Resume</h2>
+  <p class="lede">One page, aimed at industry roles. <a href="assets/resume.pdf" download>Download PDF</a></p>
+
+  <h3>Experience</h3>
+  <div class="row"><div class="when">[Year] – present</div><div>
+    <h3>Graduate Research Assistant, [University]</h3>
+    <ul><li>Built [model or pipeline] to [outcome], improving [metric] by [number].</li><li>Analyzed [dataset size and type] using [tools].</li></ul></div></div>
+  <div class="row"><div class="when">[Year] – present</div><div>
+    <h3>Teaching Assistant, [Course]</h3>
+    <ul><li>Taught [number] students; designed [materials].</li></ul></div></div>
+  <div class="row"><div class="when">[Summer Year]</div><div>
+    <h3>[Internship or project role], [Organization]</h3>
+    <ul><li>Delivered [result] for [stakeholder].</li></ul></div></div>
+
+  <h3>Technical skills</h3>
+  <p><strong>Languages:</strong> Python, R, SQL, MATLAB &nbsp; <strong>Libraries:</strong> pandas, NumPy, scikit-learn, PyTorch, ggplot2 &nbsp; <strong>Tools:</strong> Git, Jupyter, Tableau, Docker</p>
+
+  <h3>Education</h3>
+  <p>PhD Mathematics, [University], expected [Year]. BS Mathematics, [University], [Year].</p>
+</div></section>
+
+<!-- ============ CV ============ -->
+<section id="cv" class="page"><div class="wrap">
+  <h2>Curriculum vitae</h2>
+  <p class="lede">The full academic record: publications, teaching, awards, and service. <a href="assets/cv.pdf" download>Download PDF</a></p>
+  <!-- EDIT: put your CV at assets/cv.pdf -->
+  <iframe class="pdf" src="assets/cv.pdf" title="Curriculum vitae (PDF)"></iframe>
+</div></section>
+
+<!-- ============ PHOTOGRAPHY ============ -->
+<section id="photography" class="page"><div class="wrap">
+  <h2>Photography</h2>
+  <p class="lede">What I shoot when I’m away from the whiteboard.</p>
+  <div class="gallery" id="gallery"></div>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">© <span id="yr"></span> Your Name. Built with plain HTML and hosted on GitHub Pages.</div></footer>
+
+<dialog id="lightbox"><img alt=""><p></p></dialog>
+
+<script>
+/* ===== EDIT: add your photos here. Files go in assets/photos/ ===== */
+const PHOTOS = [
+  {file:"photo1.jpg", caption:"Caption or location"},
+  {file:"photo2.jpg", caption:"Caption or location"},
+  {file:"photo3.jpg", caption:"Caption or location"}
+];
+
+/* Tabs: the URL hash chooses the visible page */
+const pages = [...document.querySelectorAll('.page')];
+const links = [...document.querySelectorAll('nav a:not(.brand)')];
+function show(){
+  let id = location.hash.slice(1);
+  if(!pages.some(p=>p.id===id)) id = 'home';
+  pages.forEach(p=>p.classList.toggle('active', p.id===id));
+  links.forEach(a=>a.toggleAttribute('aria-current', a.getAttribute('href')==='#'+id) );
+  links.forEach(a=>{ if(a.hasAttribute('aria-current')) a.setAttribute('aria-current','page') });
+  window.scrollTo(0,0);
+}
+addEventListener('hashchange', show); show();
+
+/* Gallery + lightbox */
+const g = document.getElementById('gallery'), lb = document.getElementById('lightbox');
+PHOTOS.forEach(p=>{
+  const f = document.createElement('figure');
+  const img = new Image();
+  img.src = 'assets/photos/'+p.file; img.alt = p.caption; img.loading = 'lazy';
+  img.onerror = ()=>f.remove();            // hides entries whose file is missing
+  f.append(img);
+  if(p.caption){ const c=document.createElement('figcaption'); c.textContent=p.caption; f.append(c); }
+  f.onclick = ()=>{ lb.querySelector('img').src=img.src; lb.querySelector('img').alt=p.caption; lb.querySelector('p').textContent=p.caption; lb.showModal(); };
+  g.append(f);
+});
+lb.addEventListener('click', ()=>lb.close());
+
+/* Theme toggle (remembered per browser when storage is available) */
+const root = document.documentElement;
+try{ const t=localStorage.getItem('theme'); if(t) root.dataset.theme=t; }catch(e){}
+document.getElementById('theme').onclick = ()=>{
+  const dark = root.dataset.theme ? root.dataset.theme==='dark' : matchMedia('(prefers-color-scheme:dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+  try{ localStorage.setItem('theme', root.dataset.theme); }catch(e){}
+};
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
