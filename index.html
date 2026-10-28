@@ -390,8 +390,8 @@
     }
 
     footer {
-      border-top: 1px solid var(--grid);
-      color: var(--muted);
+      background: #36454F;
+      color: #c9d3da;
       font-size: .85rem;
       padding: 1.5rem 0
     }
@@ -422,7 +422,7 @@
     /* Section backgrounds (splash keeps its own grid paper) */
     #about,
     #projects,
-    #photography {
+    #about {
       background: var(--band-a)
     }
 
@@ -585,24 +585,18 @@
       }
     }
 
-    /* Center the titles of Projects, Research and Photography */
-    /* #projects h2,
-    #research h2,
-    #photography h2 {
-      text-align: center
-    } */
     #projects h2,
     #research h2,
-    #photography h2,
+    #about h2,
     #projects .lede,
     #research .lede,
-    #photography .lede {
+    #about .lede {
       text-align: center
     }
 
     #projects .lede,
     #research .lede,
-    #photography .lede {
+    #about .lede {
       margin-left: auto;
       margin-right: auto
     }
@@ -617,8 +611,8 @@
         <a class="brand" href="#home">Pedro Morales</a>
         <a href="#resume">Resume</a>
         <a href="#projects">Projects</a>
-        <a href="#research">Research</a>
-        <a href="#photography">Photography</a>
+        <!-- <a href="#research">Research</a> -->
+        <a href="#about">About</a>
         <button id="theme" type="button" aria-label="Switch light or dark theme">Theme</button>
       </nav>
     </div>
@@ -635,10 +629,12 @@
           <div>
             <h1>Pedro Morales</h1>
             <p class="tagline">Data Scientist and Mathematician.</p>
-            <p class="short"> I'm a data scientist in Lafayette, IN. I am completing a Mathematics PhD at
-              Purdue University, and I love working with messy data and turn it into answers to business/scientific
+            <p class="short"> I'm a data scientist based in Lafayette, IN. I am completing a Mathematics PhD at
+              Purdue University, and I enjoy working with messy data and turn it into answers to business/scientific
               questions. </p>
-            <p><strong>I’m looking for data science and analytics roles starting July, 2027.</strong></p>
+            <p><strong>I’m looking for data science and analytics roles starting July, 2027 &mdash; U.S.
+                Citizen.</strong>
+            </p>
             <div class="links">
               <a class="btn primary" href="#projects">See my projects</a>
               <a class="btn" href="#resume">Resume</a>
@@ -686,7 +682,8 @@
       <div class="wrap">
         <h2>Projects</h2>
         <!-- EDIT: project images go in assets/projects/project1.jpg, project2.jpg, project3.jpg -->
-        <p class="lede">Each project states the question, the method, and the result.</p>
+        <p class="lede">Data science experience and personal projects.</p>
+        <!-- Each project states the question, the method, and the result. -->
         <div class="projects">
           <article class="item project">
             <figure class="pimg"><img src="assets/projects/project1.jpg" alt="Project 1 screenshot"
@@ -737,7 +734,7 @@
       </div>
     </section>
 
-    <!-- ============ RESEARCH ============ -->
+    <!-- ============ RESEARCH ============
     <section id="research" class="page">
       <div class="wrap">
         <h2>Research</h2>
@@ -772,13 +769,21 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- ============ PHOTOGRAPHY ============ -->
-    <section id="photography" class="page">
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="page">
       <div class="wrap">
-        <h2>Photography</h2>
-        <p class="lede">What I shoot when I’m away from the whiteboard.</p>
+        <h2>About</h2>
+        <p class="lede">A bit about my background and interests.</p>
+        <p>My name is Pedro Morales, and I am a Mathematics PhD student at Purdue University. My mathematical interests
+          are
+          generally in Partial Differential Equations, with a focus on scattering theory—which studies how waves and
+          particles interact with obstacles or potentials.</p>
+
+        <p>I also have a background in data science, with an interest in applying my analytical and problem-solving
+          skills to real-world challenges and contributing to data-driven decision-making that has a positive impact on
+          society. You can check my <a href="#projects">projects</a> above.</p>
         <div class="gallery" id="gallery"></div>
       </div>
     </section>
